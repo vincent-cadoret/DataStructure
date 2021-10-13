@@ -1,5 +1,4 @@
 #include <heap.h>
-#include <float.h>
 
 void init_heap(Heap *h){
     h->index = 0;
@@ -17,8 +16,12 @@ float replace(Heap *h, float value) {
 
 }
 float peek(Heap *h){
+    return h->data[0];
+}
+void heapify(Heap *s, float array[], size_t array_size){
 
 }
-void heapify(Heap *s, float array[], size_t array_size){}
-void merge(Heap *dest, Heap *src){}
+void merge(Heap *dest, Heap *src){
+
+}
 
