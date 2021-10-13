@@ -24,12 +24,12 @@ typedef struct {
 
 #endif /* STACK_H */
 
-void init_stack(Stack *s);
-void push(Stack *s, float value);
-float pop(Stack *s);
-bool is_stack_empty(Stack *s);
-float peek(Stack *s); // aka top or front
-void dup(Stack *s);
-void swap(Stack *s);
-void clear(Stack *s);
+void init_stack(Stack *s);1
+void push(Stack *s, float value);1
+float pop(Stack *s);0
+bool is_stack_empty(Stack *s);0
+float peek(Stack *s);0 // aka top or front
+void dup(Stack *s);1
+void swap(Stack *s);1
+void clear(Stack *s);1
 
