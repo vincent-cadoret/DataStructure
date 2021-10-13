@@ -6,11 +6,15 @@
 
 #include "stack.h"
 
-void push(Stack *s, float value) {
+void init_stack(Stack *s) {
+    s->index = 0;
+}
+
+void push_stack(Stack *s, float value) {
     s->data[s->index + 1] = value;
 }
 
-float pop(Stack *s){
+float pop_stack(Stack *s){
     float value = s->data[s->index];
     s->data[s->index] -= 1;
     return value;
@@ -24,13 +28,10 @@ bool is_stack_empty(Stack *s){
     }
 }
 
-float peek(Stack *s){
+float peek_stack(Stack *s){
     return s->data[s->index];
 }
 
-void init_stack(Stack *s) {
-    s->index = 0;
-}
 
 void dup(Stack *s){
     s->data[s->index + 1] = s->data[s->index];
@@ -42,7 +43,7 @@ void swap(Stack *s) {
     s->data[s->index] = temp;
 }
 
-void clear(Stack *s){
+void clear_stack(Stack *s){
     s->index = 0;
     for (int i = 0; i != STACK_MAX_SIZE; ++i) {
         s->data[i] = 0;
