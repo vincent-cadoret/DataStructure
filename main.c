@@ -15,8 +15,8 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
-
 #include "stack.h"
+
 
 float test(int a) {
     errno = a;
@@ -25,11 +25,9 @@ float test(int a) {
     fprintf(stderr, "Value of errno: %d\n", errnum);
     perror("Error printed by perror");
     fprintf(stderr, "Error opening file: %s\n", strerror(errnum));
-
 }
 
-
-/*
+/**
  * 
  */
 int main(int argc, char** argv) {
