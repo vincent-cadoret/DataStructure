@@ -10,7 +10,6 @@ typedef struct {
     int index;
 } Heap;
 
-
 #endif /* HEAP_H */
 
 void init_heap(Heap *h);
