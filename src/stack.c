@@ -21,7 +21,8 @@ void init_stack(Stack *s) {
  * @param value
  */
 void push_stack(Stack *s, float value) {
-    s->data[s->index + 1] = s->index;
+    s->data[s->index] = value;
+    s->index += 1;
 }
 
 /**
