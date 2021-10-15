@@ -20,7 +20,6 @@ void push(Heap *h, float value);
 float replace(Heap *h, float value);
 float peek(Heap *h);
 void heapify(Heap *s, float array[], size_t array_size);
-void merge(Heap *dest, Heap *src);
 void heapSort(Heap *h);
 
 

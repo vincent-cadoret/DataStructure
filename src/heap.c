@@ -36,10 +36,11 @@ void push(Heap *h, float value){
     h->data[i] = value;
 }
 float replace(Heap *h, float value) {
+    float val = 0;
     if(h->index == 0){
         h->index++;
     }
-    float val = h->data[0];
+    val = h->data[0];
     h->data[0] = value;
     heapSort(h);
     return val;
@@ -52,18 +53,16 @@ void heapify(Heap *s, float array[], size_t array_size){
         push(s, array[i]);
     }
 }
-void merge(Heap *dest, Heap *src){
-
-}
 void heapSort(Heap *h){
+    float temp = 0;
     for (int i = h->index / 2 - 1; i >= 0; i--){
         heapify(h, h->data, sizeof(float)* h->index);
     }
-    for (int i = h->index-1; i > 0; i--) {
-        float temp = h->data[0];
+    for (int i = h->index - 1; i > 0; i--) {
+        temp = h->data[0];
         h->data[0] = h->data[i];
         h->data[i] = temp;
-        heapify(h, h->data, sizeof(float)*h->index);
+        heapify(h, h->data, sizeof(float)* h->index);
     }
 }
 
