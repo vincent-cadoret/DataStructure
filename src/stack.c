@@ -31,7 +31,7 @@ void push_stack(Stack *s, float value) {
  * @return
  */
 float pop_stack(Stack *s){
-    float value = s->data[s->index];
+    float value = s->data[s->index - 1];
     s->data[s->index] -= 1;
     return value;
 }
@@ -55,7 +55,7 @@ bool is_stack_empty(Stack *s){
  * @return
  */
 float peek_stack(Stack *s){
-    return s->data[s->index];
+    return s->data[s->index - 1];
 }
 
 /**
@@ -63,7 +63,8 @@ float peek_stack(Stack *s){
  * @param s
  */
  void dup(Stack *s){
-    s->data[s->index + 1] = s->data[s->index];
+    s->data[s->index] = s->data[s->index - 1];
+    s->index += 1;
 }
 
 /**
@@ -71,9 +72,9 @@ float peek_stack(Stack *s){
  * @param s
  */
  void swap(Stack *s) {
-    float temp = s->data[s->index];
-    s->data[s->index] = s->data[s->index - 1];
-    s->data[s->index] = temp;
+    float temp = s->data[s->index - 1];
+    s->data[s->index - 1] = s->data[s->index - 2];
+    s->data[s->index - 2] = temp;
 }
 
 /**
@@ -82,7 +83,7 @@ float peek_stack(Stack *s){
  */
  void clear_stack(Stack *s){
     s->index = 0;
-    for (int i = 0; i != STACK_MAX_SIZE; ++i) {
+    for (int i = 0; i != STACK_MAX_SIZE; i++) {
         s->data[i] = 0;
     }
     s->index = 0;

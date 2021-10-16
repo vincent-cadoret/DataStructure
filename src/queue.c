@@ -12,16 +12,22 @@
  * @param value
  */
 void enqueue(Queue *q, float value){
-    q->data[q->index + 1] = value;
+    int temp = q->index;
+    while (temp >= 0){
+
+    }
+    q->data[0] = value;
+    q->index += 1;
+
 }
 
 /**
- * init : Récupération des données
+ * init_queue : Récupération des données
  * @param s
  */
-void init_queue(Queue *s)
+void init_queue(Queue *q)
 {
-    s->index = 0; //TODO
+    q->index = 0; //TODO
 }
 
 /**
@@ -30,8 +36,8 @@ void init_queue(Queue *s)
  * @return
  */
 float dequeue(Queue *q){
-    float value = q->data[q->index];
-    q->data[q->index] += 1;
+    float value = q->data[q->index - 1] ;
+    q->index -= 1;
     return value;
 }
 
@@ -49,12 +55,12 @@ bool is_queue_empty(Queue *q){
 }
 
 /**
- *
+ * front : Récupération de données sans des-empiler
  * @param q
  * @return
  */
 float front(Queue *q){ /*aka peek*/
-    return q->data[q->index];
+    return q->data[q->index - 1];
 }
 
 /**
