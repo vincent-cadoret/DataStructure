@@ -1,101 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: aurelio
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 #include <assert.h>
-#include "header/array_list.h"
-#include "header/heap.h"
 
-/**
- * Fonction de test ArrayList
+#include "stack.h"
+
+void JeTestStack(){
+    Stack *s;
+    s = malloc(sizeof(Stack));
+    init_stack(s);
+    assert(s->index == 0);
+    printf("ETAGE0    %d\n", s->index);
+
+    push_stack(s, 55);
+    assert(s->index == 1);
+    assert(s->data[0] == 55);
+    printf("ETAGE0    %d\n", s->index);
+    printf("ETAGE0DATA    %d\n", s->data[1]);
+
+    push_stack(s, 100);
+    assert(s->index == 2);
+    assert(s->data[1] == 100);
+    printf("ETAGE1    %d\n", s->index);
+    printf("ETAGE1DATA    %d\n", s->data[1]);
+
+    pop_stack(s);
+    assert(s->index == 2);
+    assert(s->data[1] == 100);
+}
+
+/*
+ *
  */
-#ifdef _WIN32
-
-
-void testArrayList(void) {
-    printf("You have Windows Operating System\n");
-    Array_list *l = malloc(sizeof(Array_list));
-
-    init_array_list(l);
-    assert(l->index == 0);
-
-    /**
-     * Test ajout sans passer de position en paramètre
-     */
-    add(l, 63);
-    assert(l->data[0] == 63);
-    assert(l->index == 1);
-
-
-    /**
-     * Test ajout avec passage de position en paramètre
-     */
-    insert_at(l, 80, 56);
-    assert(l->index == 2);
-    assert(l->data[1] == 56);
-
-
-    /**
-     * Test ajout avec passage de position en paramètre
-     */
-    insert_at(l, 1, 48);
-    assert(l->index == 3);
-    assert(l->data[1] == 48);
-
-
-    /**
-     * Test suppression valeur a un index precis.
-     */
-    remove_at(l, 1);
-    assert(l->index == 2);
-    assert(l->data[1] == 56);
-
-
-    /**
-     * Obtention de la valeur 56 dans l'arraylist.
-     */
-    assert(get_at(l, 1) == 56);
-    clear(l);
-
-
-    /**
-     * On verifie que le tableau a bien ete vider.
-     */
-    assert(l->index == 0);
-
-    printf("ArrayList OK !\n");
-}
-
-
-/**
- * Fonction test du Heap;
- */
-void testHeap(void) {
-    Heap *h = malloc(sizeof(Heap));
-
-    /**
-     * Initialisation du tableau;
-     */
-    init_heap(h);
-    assert(h->index == 0);
-    assert(is_heap_empty(h) == true);
-
-    h->data[0] = 0;
-    assert(peek(h) == 0);
-
-    printf("Heap OK !\n");
-}
-#endif
-#ifdef __linux__
-void testHeap(void) {
-    printf("You have Linux Operating System");
-}
-void testArrayList(void) {
-
-}
-#endif
-
 int main(int argc, char** argv) {
-    testArrayList();
-    testHeap();
+
+    JeTestStack();
+
     return (EXIT_SUCCESS);
 }
 
