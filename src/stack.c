@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-#include "assert.h"
+#include "assertLinux.h"
 #include "stack.h"
 
 /**

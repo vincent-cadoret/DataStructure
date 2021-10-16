@@ -11,7 +11,7 @@
  * @param q
  * @param value
  */
-void enqueue(Queue *q, float value){
+void enqueue(Queue *q, float value) {
     q->data[q->index + 1] = value;
 }
 
@@ -19,8 +19,7 @@ void enqueue(Queue *q, float value){
  * init : Récupération des données
  * @param s
  */
-void init_queue(Queue *s)
-{
+void init_queue(Queue *s) {
     s->index = 0; //TODO
 }
 
@@ -29,7 +28,7 @@ void init_queue(Queue *s)
  * @param q
  * @return
  */
-float dequeue(Queue *q){
+float dequeue(Queue *q) {
     float value = q->data[q->index];
     q->data[q->index] += 1;
     return value;
@@ -40,7 +39,7 @@ float dequeue(Queue *q){
  * @param q
  * @return
  */
-bool is_queue_empty(Queue *q){
+bool is_queue_empty(Queue *q) {
     if (q->data[q->index] == 0) {
         return true;
     } else{
@@ -53,7 +52,7 @@ bool is_queue_empty(Queue *q){
  * @param q
  * @return
  */
-float front(Queue *q){ /*aka peek*/
+float front(Queue *q) {
     return q->data[q->index];
 }
 
@@ -61,6 +60,6 @@ float front(Queue *q){ /*aka peek*/
  * clear: Vide la file
  * @param q
  */
-void clear_queue(Queue *q){
+void clear_queue(Queue *q) {
     q->index = 0;
 }
