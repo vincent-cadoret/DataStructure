@@ -10,7 +10,7 @@ int main(void) {
         operatingSystem();
         testStack();
         testQueue();
-        testArrayList();
+        testArrayist();
         testHeap();
     #endif
 
@@ -26,7 +26,6 @@ int main(void) {
         testArrayList();
         testHeap();
     #endif
-
     return (EXIT_SUCCESS);
 }
 

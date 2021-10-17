@@ -63,7 +63,7 @@ float peek_stack(Stack *s){
  * @brief Duplique le sommet de la pile
  * @param s
  */
- void dup(Stack *s){
+void dup(Stack *s){
     s->data[s->index] = s->data[s->index - 1];
     s->index++;
 }
@@ -72,7 +72,7 @@ float peek_stack(Stack *s){
  * @brief  Echange les deux éléments au sommet
  * @param s
  */
- void swap(Stack *s) {
+void swap(Stack *s) {
     if (s->index > 1){
         float temp = s->data[s->index - 1];
         s->data[s->index - 1] = s->data[s->index - 2]; // boucle d'inversion
@@ -86,7 +86,7 @@ float peek_stack(Stack *s){
  */
  void clear_stack(Stack *s){
     s->index = 0;
-    for (int i = 0; i != STACK_MAX_SIZE; ++i) {
+    for (int i = 0; i != STACK_MAX_SIZE; i++) {
         s->data[i] = 0;
     }
     s->index = 0;
