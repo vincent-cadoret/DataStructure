@@ -9,71 +9,108 @@
 #include <assert.h>
 #include <heap.h>
 #include <stack.h>
+#include <queue.h>
 
 #ifdef _WIN32
 void operatingSystem(){
     printf("You have Windows Operating System\n");
 }
-void testStack(){
-    Stack *s;
-    s = malloc(sizeof(Stack));
+void testStack(void){
+    Stack *s = malloc(sizeof(Stack));
+
+    /**
+     * Initialisation d'un nouveau Stack.
+     */
     init_stack(s);
     assert(s->index == 0);
 
-    /*
-     * Vérifie l'empilement de la valeur ajouté et l'incrémentation de l'index
+    /**
+     * Insertion de valeur
      */
-    push_stack(s, 55);
+    push_stack(s, 8);
     assert(s->index == 1);
-    assert(s->data[0] == 55);
+    assert(s->data[0] == 8);
 
-    push_stack(s, 10);
-    assert(s->index == 2);
-    assert(s->data[1] == 10);
+    /**
+     * Retourne le dernière élément avant de le supprimer.
+     */
+    assert(peek_stack(s) == 8);
 
-    /*
-     * Vérifie qu'on récupère bien la dernière valeur de la pile
+    /**
+     * Supprime le dernière élément du Stack.
      */
     pop_stack(s);
-    assert(s->index == 2);
-    assert(s->data[1] == 10);
+    assert(s->index == 0);
 
-    /*
-     * Vérifie que la pile n'est pas vide
+    /**
+     * Ajout de deux valeurs.
      */
-    is_stack_empty(s);
-    assert(true);
+    push_stack(s, 8);
+    push_stack(s, 73);
 
-    /*
-     * Verifie que les 2 valeurs du sommet sont dupliqués
-     */
-    dup(s);
-    assert(s->data[1] == s->data[2]);
-    assert(s->index == 3);
-    assert(s->data[2] == 10);
-
-    /*
-     * Verifie que l'echange s'effectue entre les valeurs du haut
-     */
-    push_stack(s, 99);
-    swap(s);
-    assert(s->data[2] == 99);
-    assert(s->data[3] == 10);
-
-    /*
-     * Verifie que la pile soit bien vidé
+    /**
+     * Vide le tableau.
      */
     clear_stack(s);
     for (int i = 0; i != STACK_MAX_SIZE ; i++) {
         assert(s->data[i] == 0);
     }
+
+    printf("Stack OK !\n");
 }
 void testQueue(void){
-    //TODO
+    Queue *q = malloc(sizeof(Queue));
+
+    /**
+     * Initialisation du Queue.
+     */
+    init_queue(q);
+    assert(q->index == 0);
+
+    /**
+     * Ajout de valeurs (x3)
+     */
+    enqueue(q, 48);
+    assert(q->data[0] == 48);
+    assert(q->index == 1);
+
+    enqueue(q, 56);
+    assert(q->data[0] == 56);
+    assert(q->index == 2);
+
+    enqueue(q, 78);
+    assert(q->data[0] == 78);
+    assert(q->index == 3);
+
+    /**
+     * Suppresion de valeur
+     */
+    dequeue(q);
+    assert(q->data[0] == 78);
+    assert(q->index == 2);
+
+    /**
+     * Verifie si le tableau est vide ou non.
+     */
+    assert(is_queue_empty(q) == false);
+    assert(front(q) == 56);
+
+    /**
+     * Vide le tableau.
+     */
+    clear_queue(q);
+    for (int i = 0; i != QUEUE_MAX_SIZE ; i++) {
+        assert(q->data[i] == 0);
+    }
+
+    printf("Queue OK !\n");
 }
 void testArrayList(void) {
     Array_list *l = malloc(sizeof(Array_list));
 
+    /**
+     * Initalisation du Array.
+     */
     init_array_list(l);
     assert(l->index == 0);
 
@@ -132,12 +169,19 @@ void testHeap(void) {
     Heap *h = malloc(sizeof(Heap));
 
     /**
-     * Initialisation du tableau;
+     * Initialisation du heap;
      */
     init_heap(h);
     assert(h->index == 0);
+
+    /**
+     * Verifie si le tableau est vide.
+     */
     assert(is_heap_empty(h) == true);
 
+    /**
+     * Retourne le dernière élément avant de le supprimer.
+     */
     h->data[0] = 0;
     assert(peek(h) == 0);
 

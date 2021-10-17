@@ -68,9 +68,34 @@ void testStack(){
     for (int i = 0; i != STACK_MAX_SIZE ; i++) {
         CU_ASSERT(s->data[i] == 0);
     }
+    printf("Stack OK !\n");
 }
 void testQueue(void){
-    //TODO
+    Queue *q = malloc(sizeof(Queue));
+
+    init_queue(q);
+    CU_ASSERT(q->index == 0);
+
+    enqueue(q, 48);
+    CU_ASSERT(q->data[0] == 48);
+    CU_ASSERT(q->index == 1);
+
+    enqueue(q, 56);
+    CU_ASSERT(q->data[0] == 56);
+    CU_ASSERT(q->index == 2);
+
+    enqueue(q, 78);
+    CU_ASSERT(q->data[0] == 78);
+    CU_ASSERT(q->index == 3);
+
+    dequeue(q);
+    CU_ASSERT(q->data[0] == 78);
+    CU_ASSERT(q->index == 2);
+
+    CU_ASSERT(is_queue_empty(q) == false);
+    CU_ASSERT(front(q) == 56);
+
+    printf("Queue OK !\n");
 }
 void testHeap(void) {
     Heap *h = malloc(sizeof(Heap));

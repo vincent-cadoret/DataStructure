@@ -1,7 +1,7 @@
 #include <array_list.h>
 
 /**
- * Initialise le tableau.
+ * @brief Initialise le tableau.
  * @param l
  */
 void init_array_list(Array_list *l) {
@@ -10,7 +10,7 @@ void init_array_list(Array_list *l) {
 
 
 /**
- * Inserer a une position defini
+ * @brief Inserer a une position definie
  * @param l
  * @param position
  * @param value
@@ -29,7 +29,7 @@ void insert_at(Array_list *l, int position, float value) {
 
 
 /**
- * Insere a la fin du tableau
+ * @brief Insere a la fin du tableau
  * @param l
  * @param value
  */
@@ -40,7 +40,7 @@ void add(Array_list *l, float value) {
 
 
 /**
- * Retire une valeur a la position donner.
+ * @brief Retire une valeur a la position donner.
  * @param l
  * @param position
  * @return
@@ -58,7 +58,7 @@ float remove_at(Array_list *l, int position) {
 
 
 /**
- * Obtiens la valeur a une position donner.
+ * @brief Obtiens la valeur a une position donner.
  * @param l
  * @param position
  * @return
@@ -69,7 +69,7 @@ float get_at(Array_list *l, int position){
 
 
 /**
- * Vide le tableau de toute ses valeurs.
+ * @brief Vide le tableau de toute ses valeurs.
  * @param l
  */
 void clear(Array_list *l){

@@ -32,4 +32,5 @@ float peek_stack(Stack *s); // aka top or front
 void dup(Stack *s);
 void swap(Stack *s);
 void clear_stack(Stack *s);
+void printStack(Stack *s);
 

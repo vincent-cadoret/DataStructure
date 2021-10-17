@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
+#include <stdio.h>
 #include "assertLinux.h"
 #include "stack.h"
 
 /**
- * init: Initialise la pile
+ * @brief Initialise la pile
  * @param s
  */
 void init_stack(Stack *s) {
@@ -16,28 +17,28 @@ void init_stack(Stack *s) {
 }
 
 /**
- * push : Empilement de données
+ * @brief Empilement de données
  * @param s
  * @param value
  */
 void push_stack(Stack *s, float value) {
     s->data[s->index] = value;
-    s->index += 1;
+    s->index++;
 }
 
 /**
- * pop : Récupération des données
+ * @brief Récupération des données
  * @param s
  * @return
  */
 float pop_stack(Stack *s){
-    float value = s->data[s->index];
-    s->data[s->index] -= 1;
-    return value;
+    float isFloat = s->data[s->index - 1];
+    s->index--;
+    return isFloat;
 }
 
 /**
- * is_empty: Etat de la pile
+ * @brief Etat de la pile
  * @param s
  * @return
  */
@@ -50,34 +51,37 @@ bool is_stack_empty(Stack *s){
 }
 
 /**
- * peek : Récupération de données sans des-empiler
+ * @brief Récupération de données sans des-empiler
  * @param s
  * @return
  */
 float peek_stack(Stack *s){
-    return s->data[s->index];
+    return s->data[s->index - 1];
 }
 
 /**
- * dup : Duplique le sommet de la pile
+ * @brief Duplique le sommet de la pile
  * @param s
  */
  void dup(Stack *s){
-    s->data[s->index + 1] = s->data[s->index];
+    s->data[s->index] = s->data[s->index - 1];
+    s->index++;
 }
 
 /**
- * swap : Echange les deux éléments au sommet
+ * @brief  Echange les deux éléments au sommet
  * @param s
  */
  void swap(Stack *s) {
-    float temp = s->data[s->index];
-    s->data[s->index] = s->data[s->index - 1];
-    s->data[s->index] = temp;
+    if (s->index > 1){
+        float temp = s->data[s->index - 1];
+        s->data[s->index - 1] = s->data[s->index - 2]; // boucle d'inversion
+        s->data[s->index - 2] = temp;
+    }
 }
 
 /**
- * clear: Vide la pile
+ * @brief Vide la pile
  * @param s
  */
  void clear_stack(Stack *s){
@@ -86,4 +90,14 @@ float peek_stack(Stack *s){
         s->data[i] = 0;
     }
     s->index = 0;
+}
+
+/**
+ * @brief Fonction de test (ne pas considérer). Affiche le contenu du tableau.
+ * @param s
+ */
+void printStack(Stack *s){
+    for (int i = 0; i < STACK_MAX_SIZE; ++i) {
+        printf("%f\n", s->data[i]);
+    }
 }

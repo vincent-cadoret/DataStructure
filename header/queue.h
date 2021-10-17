@@ -33,4 +33,5 @@ float dequeue(Queue *q);
 bool is_queue_empty(Queue *q);
 float front(Queue *q); //aka peek
 void clear_queue(Queue *q);
+void printQueue(Queue *q);
 
