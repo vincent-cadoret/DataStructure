@@ -69,6 +69,9 @@ Pour lancer le programme, _il faut exécuter la commande suivante depuis un term
  - Se placer dans le répertoire du projet.
  - `cd cmake-build-debug`
  - `DataStructure.exe`
+ 
+ ![Screenshot_1](https://user-images.githubusercontent.com/58009814/137632116-11dd885d-bbe9-459a-ac33-5d1b8c3aa1ff.png)
+
 
 ## Auteurs   
 * **Vincent Cadoret** _alias_ [@vincent-cadoret](https://github.com/vincent-cadoret)   
