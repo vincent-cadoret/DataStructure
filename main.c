@@ -10,7 +10,7 @@ int main(void) {
         operatingSystem();
         testStack();
         testQueue();
-        testArrayist();
+        testArrayList();
         testHeap();
     #endif
 
