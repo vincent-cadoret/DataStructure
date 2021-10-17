@@ -66,7 +66,9 @@ _En informatique, le tri par tas est un algorithme de tri par comparaisons. Cet 
 
 ## Démarrage
 Pour lancer le programme, _il faut exécuter la commande suivante depuis un terminal de cmd_:   
-``   
+ - Se placer dans le répertoire du projet.
+ - `cd cmake-build-debug`
+ - `DataStructure.exe`
 
 ## Auteurs   
 * **Vincent Cadoret** _alias_ [@vincent-cadoret](https://github.com/vincent-cadoret)   
