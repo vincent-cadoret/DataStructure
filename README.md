@@ -21,45 +21,45 @@ Pour ce TP vous allez devoir récupérer le projet « DataStructure » sur le se
 **Partie 1 : implémentation d’une pile:**   
 _Une pile est une séquence dans laquelle on ne peut ajouter et supprimer un élément qu’a une seule extrémité : le«sommet» de la pile._  
 
-- `void init_stack(Stack *s);`
-- `void push_stack(Stack *s, float value);`
-- `float pop_stack(Stack *s);`
-- `bool is_stack_empty(Stack *s);`
-- `float peek_stack(Stack *s);` //aka top or front
-- `void dup(Stack *s);`
-- `void swap(Stack *s);`
-- `void clear_stack(Stack *s);`
+- `void init_stack(Stack *s);`  init: Initialise la pile   @param s
+- `void push_stack(Stack *s, float value);`   push : Empilement de données  @param s  @param value
+- `float pop_stack(Stack *s);`  pop : Récupération des données  @param s  @return
+- `bool is_stack_empty(Stack *s);`   is_empty: Etat de la pile  @param s  @return
+- `float peek_stack(Stack *s);` //aka top or front   peek : Récupération de données sans des-empiler   @param s   @return
+- `void dup(Stack *s);`  dup : Duplique le sommet de la pile  @param s
+- `void swap(Stack *s);`  swap : Echange les deux éléments au sommet   @param s
+- `void clear_stack(Stack *s);`  clear: Vide la pile  @param s
 
 **Partie 2 : implémentation d’une file:**   
 _Une file est une séquence dans laquelle on ne peut ajouter un élément qu’a une seule extrémité et ne supprimer un élément qu’à l’autre extrémité : la«tête»de la file._
-- `void init_queue(Queue *s);`
-- `void enqueue(Queue *q, float value);`
-- `float dequeue(Queue *q);`
-- `bool is_queue_empty(Queue *q);`
-- `float front(Queue *q);` //aka peek
-- `void clear_queue(Queue *q);`
+- `void init_queue(Queue *s);`  enqueue: Ajout de données  @param q  @param value
+- `void enqueue(Queue *q, float value);`  init_queue : Récupération des données   @param s
+- `float dequeue(Queue *q);`  dequeue : Récupération des données  @param q  @return
+- `bool is_queue_empty(Queue *q);`   is_empty : Etat de la pile   @param q   @return
+- `float front(Queue *q);` //aka peek  front : Récupération de données sans des-empiler   @param q  @return
+- `void clear_queue(Queue *q);`  clear: Vide la file  @param q
 
 **Partie 3 : implémentation d’une liste:**   
 _Une liste est une structure de données permettant de regrouper des données de manière à pouvoir y accéder librement (contrairement aux files et aux piles, dont l'accès se fait respectivement en mode FIFO et LIFO)._
-- `void init_array_list(Array_list *l);`
-- `void insert_at(Array_list *l, int position, float value);`
-- `void add(Array_list *l, float value);`   
-- `float remove_at(Array_list *l, int position);`   
-- `float get_at(Array_list *l, int position);`   
-- `void clear_list(Array_list *l);`   
+- `void init_array_list(Array_list *l);`  Initialise le tableau.  @param l
+- `void insert_at(Array_list *l, int position, float value);`  Inserer a une position defini  @param l  @param position  @param value
+- `void add(Array_list *l, float value);`   Insere a la fin du tableau  @param l  @param value
+- `float remove_at(Array_list *l, int position);`   Retire une valeur a la position donner. @param l  @param position  @return
+- `float get_at(Array_list *l, int position);`   Obtiens la valeur a une position donner.  @param l  @param position  @return
+- `void clear_list(Array_list *l);`    Vide le tableau de toute ses valeurs.  @param l
 
 **Partie 4 : Implémentation d’un tas:**   
 _En informatique, le tri par tas est un algorithme de tri par comparaisons. Cet algorithme est de complexité asymptotiquement optimale, c'est-à-dire que l'on démontre qu'aucun algorithme de tri par comparaison ne peut avoir de complexité asymptotiquement meilleure. Dans l'algorithme, on cherche à obtenir un tas, c'est-à-dire un arbre binaire vérifiant les propriétés suivantes (les deux premières propriétés découlent de la manière dont on considère les éléments du tableau) : la différence maximale de profondeur entre deux feuilles est de 1 (i.e. toutes les feuilles se trouvent sur la dernière ou sur l'avant-dernière ligne) ; les feuilles de profondeur maximale sont « tassées » sur la gauche. chaque nœud est de valeur supérieure (resp. inférieure) à celles de ses deux fils, pour un tri ascendant (resp. descendant). Il en découle que la racine du tas (le premier élément) contient la valeur maximale (resp. minimale) de l'arbre. Le tri est fondé sur cette propriété._
-- `void init_heap(Heap *h);`
-- `bool is_heap_empty(Heap *h);`
-- `float pop_heap(Heap *h);` //pop the root value
-- `void push_heap(Heap *h, float value);`
-- `float replace(Heap *h, float value);` // pop root and replace with a new value.
-- `float peek_heap(Heap *h);` // return root value but don’t remove it
+- `void init_heap(Heap *h);` Initialise le tableau.  @param h
+- `bool is_heap_empty(Heap *h);` Vérifie si le heap est vide.  @param h @return
+- `float pop_heap(Heap *h);` //pop the root value  @param h @return
+- `void push_heap(Heap *h, float value);`  @param h  @param value
+- `float replace(Heap *h, float value);` // pop root and replace with a new value.   @param h  @param value @return
+- `float peek_heap(Heap *h);` // return root value but don’t remove it   @param h  @return
 - `void clear_heap(Heap *h);`
 
 // En option
-- `void heapify(Heap *s, float array[], size_t array_size);`   
+- `void heapify(Heap *s, float array[], size_t array_size);`   @param s  @param array  @param array_size
 
 // Create Heap from array
 - `void merge(Heap *dest, Heap *src);` //merge src into dest
@@ -77,3 +77,5 @@ Pour l'instant, aucune évolution du programme est envisagé.
 Si la décision change, vous serez informé aussitôt.   
 
 ## Sources:   
+**Wikipedia:**
+- [Tri par tas](https://fr.wikipedia.org/wiki/Tri_par_tas) - Wikipedia
